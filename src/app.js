@@ -3,10 +3,12 @@ const queryString = require('query-string');
 
 const parser = require('./parser');
 
-const getUrl = ({ maxKm, minKm, page, location }) => {
+const getUrl = ({ maxKm, minKm, maxPrice, minPrice, page, location }) => {
   const qs = {
-    me: maxKm,
     ms: minKm,
+    me: maxKm,
+    ps: minPrice,
+    pe: maxPrice,
     o: page,
   };
 
@@ -22,7 +24,7 @@ const init = async (params) => {
   const html = await getHtml(getUrl(params));
   const parsedCars = parser.run(html);
 
-  parsedCars.forEach(car => console.log(car.title));
+  parsedCars.forEach(car => console.log(`${car.title} || ${car.year} || ${car.price}`));
 };
 
 module.exports = {

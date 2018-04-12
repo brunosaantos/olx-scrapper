@@ -4,8 +4,10 @@ const { init } = require('./app');
 program
   .version('v1.0.0')
   .option('-l, --location <location>', 'set your location')
-  .option('-mn, --min-km <min>', 'set your min km range')
-  .option('-mx, --max-km <max>', 'set your max km range')
+  .option('-mnk, --min-km <min>', 'set your min km range')
+  .option('-mxk, --max-km <max>', 'set your max km range')
+  .option('-mnp, --min-price <min>', 'set your min price range')
+  .option('-mxp, --max-price <max>', 'set your max price range')
   .parse(process.argv);
 
 try {
