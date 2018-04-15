@@ -4,6 +4,7 @@ const { init } = require('./app');
 program
   .version('v1.0.0')
   .option('-l, --location <location>', 'set your location')
+  .option('-r, --region <location>', 'set your region')
   .option('-mnk, --min-km <min>', 'set your min km range')
   .option('-mxk, --max-km <max>', 'set your max km range')
   .option('-mnp, --min-price <min>', 'set your min price range')
@@ -15,6 +16,7 @@ program
 try {
   const defaultParams = {
     location: 'rs',
+    region: 'regioes-de-pelotas-rio-grande-e-bage',
   };
 
   const params = Object.assign(defaultParams, program);
