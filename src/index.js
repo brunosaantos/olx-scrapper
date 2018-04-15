@@ -8,6 +8,8 @@ program
   .option('-mxk, --max-km <max>', 'set your max km range')
   .option('-mnp, --min-price <min>', 'set your min price range')
   .option('-mxp, --max-price <max>', 'set your max price range')
+  .option('-mk, --make <make>', 'set the maker')
+  .option('-mo, --model <model>', 'set the model')
   .parse(process.argv);
 
 try {

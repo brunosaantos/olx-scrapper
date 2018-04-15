@@ -1,14 +1,17 @@
-const cars = () => '#main-ad-list .item';
+const cars = '#main-ad-list .item';
 
-const carTitle = () => '.OLXad-list-title';
+const carTitle = '.OLXad-list-title';
 
-const carDetails = () => '.detail-specific';
+const carDetails = '.detail-specific';
 
-const carPrice = () => '.OLXad-list-price';
+const carPrice = '.OLXad-list-price';
+
+const carLink = '.OLXad-list-link';
 
 module.exports = {
   cars,
   carTitle,
   carDetails,
   carPrice,
+  carLink,
 };

@@ -3,7 +3,7 @@ const selectors = require('./selectors');
 
 let $ = '';
 
-const getCars = () => $(selectors.cars());
+const getCars = () => $(selectors.cars);
 
 const getParsedYear = (title) => {
   const match = /[- ]\d{4}/.exec(title);
@@ -14,9 +14,10 @@ const getParsedYear = (title) => {
 
 const parseAD = (car) => {
   const $car = $(car);
-  const title = $car.find(selectors.carTitle()).text().trim();
-  const detail = $car.find(selectors.carDetails()).text().trim();
-  const price = $car.find(selectors.carPrice()).text().trim();
+  const title = $car.find(selectors.carTitle).text().trim();
+  const detail = $car.find(selectors.carDetails).text().trim().replace(/\s{3}/g, '');
+  const price = $car.find(selectors.carPrice).text().trim();
+  const link = $car.find(selectors.carLink).attr('href');
   const year = getParsedYear(title);
 
   return {
@@ -24,6 +25,7 @@ const parseAD = (car) => {
     detail,
     price,
     year,
+    link,
   };
 };
 
