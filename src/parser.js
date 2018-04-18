@@ -1,4 +1,5 @@
 const cheerio = require('cheerio');
+const terminalLink = require('terminal-link');
 const selectors = require('./selectors');
 
 let $ = '';
@@ -17,7 +18,7 @@ const parseAD = (car) => {
   const title = $car.find(selectors.carTitle).text().trim();
   const detail = $car.find(selectors.carDetails).text().trim().replace(/\s{3}/g, '');
   const price = $car.find(selectors.carPrice).text().trim();
-  const link = $car.find(selectors.carLink).attr('href');
+  const link = $car.find(selectors.carLink).attr('href') ? terminalLink('Link', $car.find(selectors.carLink).attr('href')) : '';
   const year = getParsedYear(title);
 
   return {
